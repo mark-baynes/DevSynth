@@ -11,4 +11,3 @@ The idea of the app is to create a more substantial online synthesizer. All feat
 * [React](https://reactjs.org/docs/getting-started.html)
 * [Express](https://expressjs.com/en/api.html)
 * [Knex.js](https://knexjs.org/)
-* [Tone.js](https://tonejs.github.io/)

@@ -1,10 +1,21 @@
+import Synth from './PolySynth'
+import FatOscillator from './PluckSynth'
+import NoiseSynth from './NoiseSynth'
+import Header from './Header'
+
+
 function App() {
   return (
     <>
       <header className="header">
-        <h1>My Collection</h1>
+        <Header />
       </header>
-      <section className="main">{/* add your code here */}</section>
+      <section className="main">
+        <Synth />
+        {/* <NewSynth /> */}
+        <NoiseSynth />
+        <FatOscillator />
+      </section>
     </>
   )
 }
