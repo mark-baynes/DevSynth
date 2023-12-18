@@ -29,12 +29,12 @@ const PluckSynthApp = () => {
   return (
     <div>
       <h2>Pluck Synth</h2>
-      <input type="checkbox" checked={isActive} onChange={handleToggle} />
-      <label>
+      <span><input type="checkbox" checked={isActive} onChange={handleToggle} />
+      <p>
         Activate
-        <input type="text" />
-      </label>
-    </div>
+        {/* <input type="null" /> */}
+      </p>
+    </span></div>
   )
 }
 
