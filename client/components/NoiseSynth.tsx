@@ -20,8 +20,8 @@ const NoiseSynth = () => {
     const newReverb = new Tone.Reverb().toDestination()
 
     newNoiseSynth.connect(newDelay)
-    newDelay.connect(newReverb) // Correctly connect the delay to the reverb
-    newReverb.toDestination() // And then connect the reverb to the destination
+    newDelay.connect(newReverb) 
+    newReverb.toDestination() 
 
     const newLoop = new Tone.Loop((time) => {
       newNoiseSynth.triggerAttackRelease('8n', time)
@@ -44,20 +44,20 @@ const NoiseSynth = () => {
 
   useEffect(() => {
     noiseSynth && (noiseSynth.volume.value = volume)
-  }, [volume])
+  }, [noiseSynth, volume])
 
   useEffect(() => {
     delay && (delay.delayTime.value = delayTime)
-  }, [delayTime])
+  }, [delay, delayTime])
 
   useEffect(() => {
     delay && (delay.feedback.value = feedback)
-  }, [feedback])
+  }, [delay, feedback])
 
 
   useEffect(() => {
-    reverb && (reverb.wet.value = reverbWet) // Update reverb mix when reverbWet state changes
-  }, [reverbWet])
+    reverb && (reverb.wet.value = reverbWet) 
+  }, [reverb, reverbWet])
 
   const handleTogglePlay = async () => {
     await Tone.start()

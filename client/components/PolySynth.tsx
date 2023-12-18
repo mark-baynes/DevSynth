@@ -16,13 +16,10 @@ export const playNote = (
 }
 
 const Synth = () => {
-  const [showSynth, setShowSynth] = useState(true)
   const [synth, setSynth] = useState<Tone.PolySynth | null>(null)
   const [volume, setVolume] = useState(-12)
   const [waveform, setWaveform] = useState('sine')
-  const [reverb, setReverb] = useState<Tone.Reverb | null>(null)
   const [reverbWet, setReverbWet] = useState(0.5)
-  const [delay, setDelay] = useState(null)
   const [delayTime, setDelayTime] = useState(0.25)
   const [feedback, setFeedback] = useState(0.5)
 
@@ -44,9 +41,6 @@ const Synth = () => {
       .connect(newDelay)
       .toDestination()
 
-
-    setReverb(newReverb)
-    setDelay(newDelay)
     setSynth(newSynth)
 
     const keyboard = new AudioKeys()
@@ -62,12 +56,12 @@ const Synth = () => {
       newDelay.dispose()
       
     }
-  }, [showSynth, waveform, reverbWet, delayTime, feedback])
+  }, [waveform, reverbWet, delayTime, feedback])
 
 
   useEffect(() => {
     synth && (synth.volume.value = volume)
-  }, [volume])
+  }, [synth, volume])
 
   
     if (Tone.context.state === 'suspended') {
@@ -76,8 +70,8 @@ const Synth = () => {
   
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     function keyboardNotes(event: { keyCode: unknown }) {
-      // const keyCode = event.keyCode
       
     }
 
