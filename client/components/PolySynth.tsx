@@ -44,7 +44,7 @@ const Synth = () => {
     setSynth(newSynth)
 
     const keyboard = new AudioKeys()
-    keyboard.down((key) => {
+    keyboard.down((key: { frequency: string }) => {
       if (newSynth) {
         playNote(newSynth, key.frequency)
       }
@@ -97,7 +97,7 @@ const Synth = () => {
           />
         </label>
       </div>
-      <VisualKeyboard playNote={(note) => playNote(synth, note)} />
+      <VisualKeyboard playNote={(note: string) => playNote(synth, note)} />
       <div>
         <label>
           Waveform:
@@ -135,7 +135,7 @@ const Synth = () => {
             max="1"
             step="0.01"
             value={delayTime}
-            onChange={(e) => setDelayTime(e.target.value)}
+            onChange={(e) => setDelayTime(Number(e.target.value))}
           />
         </label>
       </div>
@@ -148,7 +148,7 @@ const Synth = () => {
             max="1"
             step="0.01"
             value={feedback}
-            onChange={(e) => setFeedback(e.target.value)}
+            onChange={(e) => setFeedback(Number(e.target.value))}
           />
         </label>
       </div>

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-const VisualKeyboard = ({ playNote }) => {
+const VisualKeyboard = ({ playNote }: { playNote: (note: string) => void }) => {
   return (
   
     <div className="piano">

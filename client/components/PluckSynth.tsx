@@ -10,7 +10,7 @@ const PluckSynthApp = () => {
     const newPluckSynth = new Tone.PluckSynth().toDestination()
     const keyboard = new AudioKeys()
 
-    keyboard.down((key) => {
+    keyboard.down((key: { frequency: Tone.Unit.Frequency }) => {
       console.log(key)
       if (isActive) {
         newPluckSynth.triggerAttackRelease(key.frequency, '16n')
